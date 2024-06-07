@@ -8,7 +8,8 @@ Must be created before the deployment!
 
 ```bash
 kubectl apply -f mongo-secret.yaml
-kubectl apply -f mongo-configmap.yaml 
+kubectl apply -f mongo-configmap.yaml
+kubectl apply -f mongo-namespace.yaml
 ```
 
 ### Deployments
