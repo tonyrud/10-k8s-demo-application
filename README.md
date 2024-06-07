@@ -33,5 +33,5 @@ kubectl get svc
 ### Services
 
 ```bash
-minikube service mongo-express-service
+minikube service mongo-express-service --namespace mongodb
 ```
