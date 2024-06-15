@@ -16,5 +16,5 @@ run_mongo:
 	sleep 1
 	minikube service mongo-express-service --namespace mongodb
 
-delete:
+delete_mongo:
 	kubectl delete ns mongodb

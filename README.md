@@ -36,6 +36,8 @@ kubectl get svc
 
 ### Dashboard and Ingress
 
+Separate shell tab
+
 ```bash
 minikube dashboard
 ```
@@ -56,6 +58,8 @@ kubectl get ingress -n kubernetes-dashboard
 kubectl describe ingress dashboard-ingress -n kubernetes-dashboard
 ```
 
+Separate shell tab
+
 ```bash
 minikube tunnel
 ```
@@ -65,3 +69,5 @@ Edit `/etc/hosts` file and add `127.0.0.1   dashboard.com`
 ```bash
 sudo vim /etc/hosts
 ```
+
+[Open Dashboard](https://dashboard.com/#/workloads?namespace=mongodb)
