@@ -1,21 +1,25 @@
 # K8S Demo Deployment
 
-## Apply cmds
+## Minikube
 
-### Secrets and ConfigMap
-
-Must be created before the deployment!
+Get addons
 
 ```bash
-kubectl apply -f mongo-secret.yaml
-kubectl apply -f mongo-configmap.yaml
-kubectl apply -f mongo-namespace.yaml
+make init
 ```
 
-### Deployments
+Start minikube
 
 ```bash
-kubectl apply -f mongo-deployment.yaml
+make start_cluster
+```
+
+## K8s cmds
+
+Start all deployments
+
+```bash
+make run_mongo
 ```
 
 See running pods
@@ -30,8 +34,40 @@ See services
 kubectl get svc
 ```
 
-### Services
+### Dashboard and Ingress
+
+Separate shell tab
 
 ```bash
-minikube service mongo-express-service --namespace mongodb
+minikube dashboard
 ```
+
+Inspect pods, services, deployments...
+
+```bash
+kubectl get all -n kubernetes-dashboard
+```
+
+Inspect ingress
+
+```bash
+kubectl get ingress -n kubernetes-dashboard
+```
+
+```bash
+kubectl describe ingress dashboard-ingress -n kubernetes-dashboard
+```
+
+Separate shell tab
+
+```bash
+minikube tunnel
+```
+
+Edit `/etc/hosts` file and add `127.0.0.1   dashboard.com`
+
+```bash
+sudo vim /etc/hosts
+```
+
+[Open Dashboard](https://dashboard.com/#/workloads?namespace=mongodb)
