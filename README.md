@@ -78,4 +78,15 @@ sudo vim /etc/hosts
 
 ## Mosquitto
 
+```bash
 make run_mosquitto
+```
+
+Inspect configmap and secret files
+
+```bash
+k exec -it <pod> -- sh
+
+cat /mosquitto/config/mosquitto.conf
+cat /mosquitto/secret/secret.file
+```

@@ -16,5 +16,16 @@ run_mongo:
 	sleep 5
 	minikube service mongo-express-service --namespace mongodb
 
+run_mosquitto:
+	kubectl apply -f ./mosquitto/config-file.yaml
+	kubectl apply -f ./mosquitto/secret-file.yaml
+	kubectl apply -f ./mosquitto/mosquitto.yaml
+
 delete_mongo:
 	kubectl delete ns mongodb
+
+delete_mosquitto:
+	kubectl delete -f ./mosquitto/config-file.yaml
+	kubectl delete -f ./mosquitto/secret-file.yaml
+	kubectl delete -f ./mosquitto/mosquitto.yaml
+	
