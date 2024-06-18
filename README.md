@@ -1,6 +1,6 @@
 # K8S Demo Deployment
 
-## Minikube
+## Start cmds
 
 Get addons
 
@@ -14,13 +14,17 @@ Start minikube
 make start_cluster
 ```
 
-## K8s cmds
+Start K8S resources
 
-Start all deployments
+__NOTE: all resources are created in `mongodb` namespace__
 
 ```bash
 make run_mongo
 ```
+
+## K8s cmds
+
+**Use `kubens` to change into `mongodb` namespace**
 
 See running pods
 
@@ -36,7 +40,7 @@ kubectl get svc
 
 ### Dashboard and Ingress
 
-Separate shell tab
+Separate shell
 
 ```bash
 minikube dashboard
@@ -58,7 +62,7 @@ kubectl get ingress -n kubernetes-dashboard
 kubectl describe ingress dashboard-ingress -n kubernetes-dashboard
 ```
 
-Separate shell tab
+Separate shell
 
 ```bash
 minikube tunnel
@@ -71,3 +75,18 @@ sudo vim /etc/hosts
 ```
 
 [Open Dashboard](https://dashboard.com/#/workloads?namespace=mongodb)
+
+## Mosquitto
+
+```bash
+make run_mosquitto
+```
+
+Inspect configmap and secret files
+
+```bash
+k exec -it <pod> -- sh
+
+cat /mosquitto/config/mosquitto.conf
+cat /mosquitto/secret/secret.file
+```
