@@ -104,3 +104,35 @@ Set config locally
 ```bash
 export KUBECONFIG=<kubeconfig file>
 ```
+
+Add bitnami repo
+
+```bash
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm search repo bitnami/mongo
+```
+
+Install mongodb cmd
+
+```bash
+helm install mongodb --values helm/helm-mongodb.yaml bitnami/mongodb
+```
+
+### Mongo Express
+
+```bash
+k apply -f helm/helm-mongo-express.yaml
+```
+
+Add nginx ingress repo
+
+```bash
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm install nginx-ingress ingress-nginx/ingress-nginx --set controller.publishService.enabled=true
+```
+
+Add ingress routes
+
+```bash
+kubectl apply -f helm/helm-ingress.yaml
+```
