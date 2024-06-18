@@ -24,7 +24,7 @@ make run_mongo
 
 ## K8s cmds
 
-**Use `kubens` to change into `mongodb` namespace**
+__Use `kubens` to change into `mongodb` namespace__
 
 See running pods
 
@@ -89,4 +89,18 @@ k exec -it <pod> -- sh
 
 cat /mosquitto/config/mosquitto.conf
 cat /mosquitto/secret/secret.file
+```
+
+## Helm
+
+Download cluster config, and change permissions:
+
+```bash
+chmod 400 <kubeconfig file>
+```
+
+Set config locally
+
+```bash
+export KUBECONFIG=<kubeconfig file>
 ```

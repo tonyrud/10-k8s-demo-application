@@ -8,6 +8,9 @@ init:
 start_cluster:
 	minikube start --driver=docker
 
+stop_cluster:
+	minikube stop
+
 run_mongo:
 	kubectl apply -f ./mongodb/mongo-namespace.yaml
 	kubectl apply -f ./mongodb/mongo-secret.yaml
