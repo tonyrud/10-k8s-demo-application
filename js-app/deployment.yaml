@@ -18,7 +18,7 @@ spec:
       - name: my-registry-key
       containers:
       - name: my-app
-        image: IMAGE_NAME_HERE
+        image: tonyrudny/techdegree-module-10-k8s-node-app:1.0.0
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
