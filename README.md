@@ -91,7 +91,7 @@ cat /mosquitto/config/mosquitto.conf
 cat /mosquitto/secret/secret.file
 ```
 
-## Helm
+## Helm with remove cluster
 
 Download cluster config, and change permissions:
 
@@ -114,14 +114,19 @@ helm search repo bitnami/mongo
 
 Install mongodb cmd
 
+`cd mongo-helm-remote-cluster`
+
 ```bash
 helm install mongodb --values helm/helm-mongodb.yaml bitnami/mongodb
 ```
 
+To uninstall: `helm uninstall mongodb`
+
 ### Mongo Express
 
+
 ```bash
-k apply -f helm/helm-mongo-express.yaml
+k apply -f helm-remote-cluster/helm-mongo-express.yaml
 ```
 
 Add nginx ingress repo
@@ -134,5 +139,5 @@ helm install nginx-ingress ingress-nginx/ingress-nginx --set controller.publishS
 Add ingress routes
 
 ```bash
-kubectl apply -f helm/helm-ingress.yaml
+kubectl apply -f helm-remote-cluster/helm-ingress.yaml
 ```
