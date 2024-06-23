@@ -23,3 +23,6 @@ containerEnvVars:
 
 servicePort: 80
 serviceType: LoadBalancer
+
+probeType: httpGet
+probePath: /healthz

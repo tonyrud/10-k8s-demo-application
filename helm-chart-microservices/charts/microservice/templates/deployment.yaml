@@ -22,3 +22,18 @@ spec:
         - name: {{ .name }}
           value: {{ .value | quote }}
         {{- end}}
+        livenessProbe:
+          {{  .Values.probeType }}:
+            {{- if eq .Values.probeType "httpGet" }}
+            path: {{.Values.probePath}}
+            {{- end }}
+            port: {{ .Values.containerPort }}
+          periodSeconds: {{  .Values.probePeriodSeconds }}
+        readinessProbe:
+          {{  .Values.probeType }}:
+            {{- if eq .Values.probeType "httpGet" }}
+            path: {{.Values.probePath}}
+            {{- end }}
+            port: {{  .Values.containerPort  }}
+          periodSeconds: {{  .Values.probePeriodSeconds }}
+  

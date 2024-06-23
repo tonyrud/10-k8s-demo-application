@@ -4,8 +4,14 @@
 
 ## Video 21 - Using single config.yaml
 
+From this dir:
+
 ```bash
-make run_microservices
+make -f ../Makefile run_microservices
+```
+
+```bash
+make -f ../Makefile delete_microservices
 ```
 
 ## Video 22 - Production Best Practices
@@ -27,4 +33,46 @@ make run_microservices
 
 ```bash
 helm create microservice
+```
+
+### Linting and testing output
+
+```bash
+helm template -f values/ad-service-values.yaml ./charts/microservice
+```
+
+```bash
+helm lint -f values/ad-service-values.yaml ./charts/microservice
+```
+
+### Deploying via sh script
+
+```bash
+chmod u+x install.sh
+```
+
+Manually added services in sh file
+
+```bash
+sh install.sh
+```
+
+Remove resources
+
+```bash
+sh uninstall.sh
+```
+
+### Deploying via helmfile
+
+```bash
+brew install helmfile
+```
+
+```bash
+helm sync
+```
+
+```bash
+helm destroy
 ```
