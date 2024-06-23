@@ -124,7 +124,6 @@ To uninstall: `helm uninstall mongodb`
 
 ### Mongo Express
 
-
 ```bash
 k apply -f helm-remote-cluster/helm-mongo-express.yaml
 ```

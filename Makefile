@@ -31,4 +31,10 @@ delete_mosquitto:
 	kubectl delete -f ./mosquitto/config-file.yaml
 	kubectl delete -f ./mosquitto/secret-file.yaml
 	kubectl delete -f ./mosquitto/mosquitto.yaml
+
+run_microservices:
+	kubectl create ns microservices
+	kubectl apply -f ./helm-chart-microservices/config.yaml --namespace microservices
 	
+delete_microservices:
+	kubectl delete ns microservices
